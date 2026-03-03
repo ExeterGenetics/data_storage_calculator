@@ -1,0 +1,79 @@
+{
+  "name": "data_storage_calculator",
+  "title": "data_storage_calculator",
+  "summary": "Compute the total data storage in a given folder in a given UKB-RAP project",
+  "dxapi": "1.0.0",
+  "version": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "project",
+      "label": "Name of UKB-RAP project",
+      "class": "string",
+      "optional": false,
+      "help": "Name of UKB-RAP project in which to calculate the data storage."
+    },
+    {
+      "name": "folder",
+      "label": "Name of folder to search",
+      "class": "string",
+      "optional": false,
+      "help": "Name of the folder in the UKB-RAP project to be searched (if not a top-level folder then the full path should be given e.g., top_level_folder/folder_to_search)."
+    },
+    {
+      "name": "upload_path",
+      "label": "Directory path for output files",
+      "class": "string",
+      "optional": false,
+      "help": "Directory to upload results to (should include the project name e.g., project_name:/path/to/directory/). The output directory should be located in the same project in which the applet is run."
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "output_file1",
+      "label": "Output File 1",
+      "class": "file",
+      "help": "Detailed data json file"
+    },
+    {
+      "name": "output_file2",
+      "label": "Output File 2",
+      "class": "file",
+      "help": "Summary data json file"
+    },
+    {
+      "name": "output_file3",
+      "label": "Output File 3",
+      "class": "file",
+      "help": "Summary data plot file"
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "days": 3
+      }
+    },
+    "interpreter": "bash",
+    "release": "20.04",
+    "distribution": "Ubuntu",
+    "file": "src/calc_data_size.sh",
+    "version": "0",
+    "execDepends": [{"name": "matplotlib", "package_manager": "pip"}]
+  },
+  "access": {
+    "project": "CONTRIBUTE",   
+    "allProjects": "VIEW",
+  "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:eu-west-2": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem3_ssd1_v2_x16"
+        }
+      }
+    }
+  }
+}
