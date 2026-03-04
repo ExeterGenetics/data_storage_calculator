@@ -1,6 +1,6 @@
 <!-- dx-header -->
 # Data Storage Calculator
-This is the source code for an applet that runs on the DNAnexus Platform. This applet calculates the total storage for each user in a given folder in a given UKB-RAP project.
+This is the source code for an applet that runs on the DNAnexus Platform. This applet calculates the total storage for each user in a given folder in a given project on the UK Biobank Research Analysis Platform (UKB-RAP).
 <!-- /dx-header -->
 
 ## Applet inputs
